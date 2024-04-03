@@ -11,4 +11,4 @@ const tarefaSchema = new Schema({
 
 }, { timestamps: true });
 
-export default model("Categoria", tarefaSchema)
+export default model("Tarefa", tarefaSchema)
