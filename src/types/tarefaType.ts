@@ -5,5 +5,6 @@ export interface tarefaType{
     dataConclusao: Date,
     tipo: String,
     status: String,
-    usuarioAssociado: String   
+    usuarioAssociado: String,
+    categoria: String
 }

@@ -7,7 +7,8 @@ const tarefaSchema = new Schema({
     dataConclusao: Date,
     tipo: String,
     status: String,
-    usuarioAssociado: String
+    usuarioAssociado: String,
+    categoria: String
 
 }, { timestamps: true });
 

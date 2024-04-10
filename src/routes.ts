@@ -24,6 +24,16 @@ routes.put('/categorias/:id', categoriaController.update)
 routes.delete('/categorias/:id', categoriaController.delete)
 
 
+routes.get('/tarefas/status/:status', tarefaController.statusTarefa)
+routes.get('/tarefas/usuarios/:usuarioAssociado', tarefaController.countUsuariosTarefas)
+routes.get('/tarefas/dataconclusao/:dataConclusao', tarefaController.findDataTarefa);
+routes.get('/tarefas/tarefa-mais-recente/:usuarioAssociado', tarefaController.tarefaMaisRecente );
+routes.get('/tarefas/media-conclusao', tarefaController.mediaTarefasConcluidas );
+routes.get('/tarefas/descricao-mais-longa', tarefaController.tarefaDescricaoMaisLonga);
+routes.get('/tarefas/agrupar-por-categoria', tarefaController.agruparPorCategoria);
+routes.get('/tarefas/mais-antiga/:usuario', tarefaController.findTarefaMaisAntiga);
+
+
 export {
     routes
 }
