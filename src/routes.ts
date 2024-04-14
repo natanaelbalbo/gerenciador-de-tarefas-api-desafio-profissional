@@ -23,9 +23,11 @@ routes.get('/categorias/:id', categoriaController.findById)
 routes.put('/categorias/:id', categoriaController.update)
 routes.delete('/categorias/:id', categoriaController.delete)
 
-
+//listar tarefas concluídas ou pendentes
 routes.get('/tarefas/status/:status', tarefaController.statusTarefa)
+//Rota para contar o número total de tarefas de um usuário.
 routes.get('/tarefas/usuarios/:usuarioAssociado', tarefaController.countUsuariosTarefas)
+//Rota para listar tarefas que vencem em um determinado período.
 routes.get('/tarefas/dataconclusao/:dataConclusao', tarefaController.findDataTarefa);
 routes.get('/tarefas/tarefa-mais-recente/:usuarioAssociado', tarefaController.tarefaMaisRecente );
 routes.get('/tarefas/media-conclusao', tarefaController.mediaTarefasConcluidas );
