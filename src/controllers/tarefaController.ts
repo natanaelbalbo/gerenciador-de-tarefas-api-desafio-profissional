@@ -3,29 +3,49 @@ import tarefaService from '../service/tarefaService'
 
 class tarefaController {
     async create(req: Request, res: Response) {
-        const createdTarefa = await tarefaService.create(req.body)
-        res.status(201)
-        return res.json(createdTarefa)
+        try{
+            const createdTarefa = await tarefaService.create(req.body)
+            res.status(201)
+            return res.json(createdTarefa)
+        }catch(error){
+            console.error(error)
+        }
     }
 
     async findAll(req: Request, res: Response) {
-        const findedTarefas = await tarefaService.findAll()
-        return res.json(findedTarefas)
+        try{
+            const findedTarefas = await tarefaService.findAll()
+            return res.json(findedTarefas)
+        }catch(error){
+            console.error(error)
+        }
     }
 
     async findById(req: Request, res: Response) {
-        const findedTarefa = await tarefaService.findById(req.params.id)
-        return res.json(findedTarefa)
+        try{
+            const findedTarefa = await tarefaService.findById(req.params.id)
+            return res.json(findedTarefa)
+        }catch(error){
+            console.error(error)
+        }
     }
 
     async update(req: Request, res: Response) {
-        const updatedTarefa = await tarefaService.update(req.params.id, req.body)
-        return res.json(updatedTarefa)
+        try{
+            const updatedTarefa = await tarefaService.update(req.params.id, req.body)
+            return res.json(updatedTarefa)
+        }catch(error){
+            console.error(error)
+        }    
     }
 
     async delete(req: Request, res: Response) {
-        const deleteMessage = await tarefaService.delete(req.params.id)
-        return res.json(deleteMessage)
+        try{
+            const deleteMessage = await tarefaService.delete(req.params.id)
+            return res.json(deleteMessage)
+        }catch(error){
+            console.error(error)
+        }    
     }
     
     async statusTarefa(req: Request, res: Response) {

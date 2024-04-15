@@ -3,8 +3,12 @@ import { CategoriaType } from "../types/categoriaType";
 
 class categoriaService {
     async create(categoria: CategoriaType) {
-        const createdCategoria = await categoriaSchema.create(categoria)
-        return createdCategoria
+        try{
+            const createdCategoria = await categoriaSchema.create(categoria)
+            return createdCategoria
+        }catch(error){
+            console.error(error);
+        }    
     }
 
     async findAll() {
@@ -13,17 +17,25 @@ class categoriaService {
     }
 
     async findById(id: string) {
-        const findedCategoria = await categoriaSchema.findById(id)
-        return findedCategoria
+        try{
+            const findedCategoria = await categoriaSchema.findById(id)
+            return findedCategoria
+        }catch(error){
+            console.error(error);   
+        }    
     }
 
     async update(id: string, categoria: CategoriaType) {
-        const updatedCategoria = await categoriaSchema.findByIdAndUpdate(id, {
-            id: categoria.id,
-            nome: categoria.nome,
-            cor: categoria.cor
-        }, { new: true })
-        return updatedCategoria
+        try{
+            const updatedCategoria = await categoriaSchema.findByIdAndUpdate(id, {
+                id: categoria.id,
+                nome: categoria.nome,
+                cor: categoria.cor
+            }, { new: true })
+            return updatedCategoria
+        }catch(error){
+            console.error(error);   
+        }    
     }
 
     async delete(id: string) {

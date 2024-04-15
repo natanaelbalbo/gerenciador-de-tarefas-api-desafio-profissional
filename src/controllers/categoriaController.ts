@@ -6,7 +6,7 @@ class categoriaController {
         const createdCategoria = await categoriaService.create(req.body)
         res.status(201)
         return res.json(createdCategoria)
-    }
+    }   
 
     async findAll(req: Request, res: Response) {
         const findedCategorias= await categoriaService.findAll()

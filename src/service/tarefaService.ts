@@ -3,18 +3,31 @@ import { tarefaType } from "../types/tarefaType";
 
 class tarefaService {
     async create(tarefa: tarefaType) {
-        const createdTarefa = await tarefaSchema.create(tarefa)
-        return createdTarefa
+        try {
+            const createdTarefa = await tarefaSchema.create(tarefa)
+            return createdTarefa
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     async findAll() {
-        const findedTarefas = await tarefaSchema.find()
-        return findedTarefas
+        try {
+            const findedTarefas = await tarefaSchema.find()
+            return findedTarefas
+        } catch (error) {
+            console.error(error);  
+        }
+
     }
 
     async findById(id: string) {
-        const findedTarefa = await tarefaSchema.findById(id)
-        return findedTarefa
+        try {
+            const findedTarefa = await tarefaSchema.findById(id)
+            return findedTarefa
+        } catch (error) {
+            console.error(error);  
+        }
     }
 
     async update(id: string, tarefa: tarefaType) {
